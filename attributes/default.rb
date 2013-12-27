@@ -17,18 +17,15 @@
 # limitations under the License.
 #
 
-case node["platform_family"]
-when "debian"
-  default["chrome"]["packages"] = %w(
+default["chrome"]["packages"] = value_for_platform_family(
+  "debian" => %w(
     chromium
-  )
-when "ubuntu"
-  default["chrome"]["packages"] = %w(
+  ),
+  "ubuntu" => %w(
     chromium
-  )
-when "suse"
-  default["chrome"]["packages"] = %w(
+  ),
+  "suse" => %w(
     chromium-desktop-kde
     chromium
   )
-end
+)
