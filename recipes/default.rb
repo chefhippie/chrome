@@ -17,6 +17,19 @@
 # limitations under the License.
 #
 
+case node["platform_family"]
+when "suse"
+  include_recipe "zypper"
+
+  zypper_repository node["chrome"]["zypper"]["alias"] do
+    uri node["chrome"]["zypper"]["repo"]
+    key node["chrome"]["zypper"]["key"]
+    title node["chrome"]["zypper"]["title"]
+
+    action :add
+  end
+end
+
 node["chrome"]["packages"].each do |name|
   package name do
     action :install

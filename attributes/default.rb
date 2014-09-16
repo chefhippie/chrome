@@ -25,7 +25,11 @@ default["chrome"]["packages"] = value_for_platform_family(
     chromium
   ),
   "suse" => %w(
-    chromium-desktop-kde
-    chromium
+    google-chrome-stable
   )
 )
+
+default["chrome"]["zypper"]["alias"] = "google-chrome"
+default["chrome"]["zypper"]["title"] = "Google Chrome"
+default["chrome"]["zypper"]["repo"] = "https://dl.google.com/linux/chrome/rpm/stable/#{node["kernel"]["machine"]}"
+default["chrome"]["zypper"]["key"] = "https://dl-ssl.google.com/linux/linux_signing_key.pub"
