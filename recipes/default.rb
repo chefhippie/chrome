@@ -35,3 +35,10 @@ node["chrome"]["packages"].each do |name|
     action :install
   end
 end
+
+case node["platform_family"]
+when "suse"
+  file "/etc/zypp/repos.d/google-chrome.repo" do
+    action :delete
+  end
+end

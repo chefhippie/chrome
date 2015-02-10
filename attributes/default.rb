@@ -21,9 +21,6 @@ default["chrome"]["packages"] = value_for_platform_family(
   "debian" => %w(
     chromium
   ),
-  "ubuntu" => %w(
-    chromium
-  ),
   "suse" => %w(
     google-chrome-stable
   )
