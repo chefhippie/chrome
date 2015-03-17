@@ -26,7 +26,7 @@ when "suse"
     key node["chrome"]["zypper"]["key"]
     title node["chrome"]["zypper"]["title"]
 
-    action :add
+    action [:add, :refresh]
   end
 end
 
